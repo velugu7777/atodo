@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'atodo',
+    podModulePrefix: 'atodo/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
