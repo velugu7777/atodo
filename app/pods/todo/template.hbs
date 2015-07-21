@@ -1,20 +1,36 @@
-<h2>No. Of. Todos: {{model.length}} </h2>
 
-{{input  value=name action='newTodo' on='enter'}}
-<button type = "button" class ="btn btn-info" {{ action 'newTodo' name}}>New Todo</button>
+<div class="row">
 
-{{#each model as |todo| }}
-  <li>
-      {{input type ="checkbox"}}
-      {{#if todo.isVisible}}
-        {{input value = todo.name }}
-        <button type ="button" class="btn btn-success" {{action 'updateTodo' todo}}>Save</button>
-      {{else}}
-        <span {{action 'editTodo' todo on='doubleClick'}}> {{todo.name}}</span>
-        <button type ="button" class="btn btn-danger" {{action 'delTodo' todo.id}}>X</button>
-      {{/if}}
+  <div class="col-md-4"></div>
 
-  </li>
+  <div class="col-md-4">
 
-{{/each}}
+    <h2>No. Of. Todos: {{model.length}} </h2>
+
+    {{input  value=name  action='newTodo' on='enter' }}
+    <button type = "button" class ="btn btn-info" {{ action 'newTodo' name}}>New Todo</button>
+
+    {{#each model as |todo| }}
+      <li>
+          {{input type ="checkbox"}}
+          {{#if todo.isVisible}}
+            {{input value = todo.name }}
+            <button type ="button" class="btn btn-success" {{action 'updateTodo' todo}}>Save</button>
+          {{else}}
+            <span {{action 'editTodo' todo on='doubleClick'}}> {{todo.name}}</span>
+            <button type ="button" class="btn btn-danger" {{action 'delTodo' todo.id}}>X</button>
+          {{/if}}
+
+      </li>
+
+    {{/each}}
+
+  </div>
+
+  <div class="col-md-4"></div>
+
+</div>
+
+
+
 {{outlet}}
